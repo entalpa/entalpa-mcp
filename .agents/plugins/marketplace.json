@@ -1,0 +1,37 @@
+{
+  "name": "entalpa-plugins",
+  "interface": {
+    "displayName": "Entalpa Plugins",
+    "shortDescription": "Entalpa MCP and requirements skills",
+    "longDescription": "Repository marketplace for Entalpa MCP and requirements-engineering plugin bundles."
+  },
+  "plugins": [
+    {
+      "name": "entalpa",
+      "source": {
+        "source": "local",
+        "path": "./plugins/entalpa"
+      },
+      "description": "Adds the Entalpa remote MCP server and portable skills for implementing traceable requirements and generating grounded PRD or BRD documents.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Entalpa",
+        "url": "https://entalpa.com"
+      },
+      "homepage": "https://github.com/entalpa/entalpa-mcp/blob/main/MCP-configuration.md",
+      "repository": "https://github.com/entalpa/entalpa-mcp",
+      "license": "MIT",
+      "keywords": [
+        "requirements",
+        "traceability",
+        "mcp",
+        "product-management"
+      ],
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
