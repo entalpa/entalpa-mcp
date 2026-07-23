@@ -1,0 +1,13 @@
+interface:
+  display_name: "Entalpa Implement"
+  short_description: "Implement Entalpa requirements with traceability"
+  default_prompt: "Use $entalpa-implement to inspect my Entalpa project, implement its current requirements, and record implementation status and test coverage."
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "entalpa"
+      description: "Live Entalpa requirements, stories, stakeholders, interfaces, and project traceability."
+      transport: "streamable_http"
+      url: "https://api.entalpa.com/mcp"
+policy:
+  allow_implicit_invocation: true
