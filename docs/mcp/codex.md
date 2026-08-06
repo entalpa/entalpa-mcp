@@ -67,9 +67,9 @@ gh skill install entalpa/entalpa-mcp entalpa-prd --agent codex --scope user
 
 ## Sources
 
-- [Codex MCP](https://developers.openai.com/codex/mcp)
-- [Codex Plugins](https://developers.openai.com/codex/plugins)
-- [Build Codex plugins](https://developers.openai.com/codex/plugins/build)
-- [Codex Skills](https://developers.openai.com/codex/skills)
+- [Codex MCP](https://learn.chatgpt.com/docs/extend/mcp)
+- [Codex Plugins](https://learn.chatgpt.com/docs/plugins)
+- [Build Codex plugins](https://developers.openai.com/plugins/build/plugins)
+- [Codex Skills](https://learn.chatgpt.com/docs/build-skills)
 - [npx skills](https://github.com/vercel-labs/skills)
 - [GitHub CLI skills](https://cli.github.com/manual/gh_skill)

@@ -51,8 +51,8 @@ Use native installers and the plugin marketplaces above. Registry and directory 
 
 ## Sources
 
-- [Codex Plugins](https://developers.openai.com/codex/plugins)
-- [Build Codex plugins](https://developers.openai.com/codex/plugins/build)
+- [Codex Plugins](https://learn.chatgpt.com/docs/plugins)
+- [Build Codex plugins](https://developers.openai.com/plugins/build/plugins)
 - [Claude Code plugin marketplaces](https://code.claude.com/docs/en/plugin-marketplaces)
 - [Claude Code plugins reference](https://code.claude.com/docs/en/plugins-reference)
 - [MCP Registry](https://modelcontextprotocol.io/registry/about)

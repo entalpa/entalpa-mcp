@@ -21,6 +21,9 @@ npx skills add entalpa/entalpa-mcp --skill "*" --agent <agent> -g -y
 - URL: `https://api.entalpa.com/mcp`
 - Transport: Streamable HTTP
 - Authentication: OAuth through Entalpa
+- Account: an Entalpa account is required. Your client opens Entalpa's sign-in on first connect and registers itself; there is no API key to paste. Create an account at [entalpa.com](https://entalpa.com).
+
+The server reads and writes the projects that account can already see. The skills below are what tell an agent how to use it well, but the connection works without them.
 
 See [MCP-configuration.md](MCP-configuration.md) for native client installers, configuration examples, and compatibility notes.
 
@@ -49,6 +52,17 @@ claude plugin install entalpa@entalpa-plugins
 - `skills/entalpa-prd/`: Entalpa PRD.
 - `plugins/entalpa/`: self-contained Codex and Claude Code plugin bundle containing every skill above.
 - `docs/mcp/`: client-specific installation and troubleshooting guides.
+
+## Versions and Changes
+
+Released versions and what changed in each are in [CHANGELOG.md](CHANGELOG.md). For reproducible, tag-pinned install commands see [docs/mcp/release-and-versioning.md](docs/mcp/release-and-versioning.md).
+
+## Support and Policies
+
+- MCP setup and support: https://entalpa.com/en/connect-mcp
+- Email: contact@entalpa.com
+- Privacy policy: https://entalpa.com/en/privacy-policy
+- Terms of service: https://entalpa.com/en/terms-of-service
 
 ## License
 

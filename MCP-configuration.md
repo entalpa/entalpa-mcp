@@ -135,7 +135,7 @@ See [docs/mcp/troubleshooting.md](docs/mcp/troubleshooting.md).
 ## Sources
 
 - [Claude Code MCP](https://code.claude.com/docs/en/mcp)
-- [Codex MCP](https://developers.openai.com/codex/mcp)
+- [Codex MCP](https://learn.chatgpt.com/docs/extend/mcp)
 - [Connect MCP servers from ChatGPT](https://developers.openai.com/apps-sdk/deploy/connect-chatgpt)
 - [add-mcp](https://github.com/neon-solutions/add-mcp)
 - [npx skills](https://github.com/vercel-labs/skills)

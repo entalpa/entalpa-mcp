@@ -48,9 +48,9 @@ npx skills add entalpa/entalpa-mcp --skill "*" --agent warp -g -y
 
 ## Sources
 
-- [Warp MCP](https://docs.warp.dev/agent-platform/capabilities/mcp/)
+- [Warp MCP](https://docs.warp.dev/agents/capabilities/mcp/)
 - [Warp MCP workflows](https://docs.warp.dev/guides/external-tools/using-mcp-servers-with-warp/)
 - [Warp MCP servers for cloud agents](https://docs.warp.dev/platform/mcp/)
 - [Warp changelog](https://docs.warp.dev/changelog)
-- [Warp Agent Skills](https://docs.warp.dev/agent-platform/capabilities/skills)
+- [Warp Agent Skills](https://docs.warp.dev/agents/capabilities/skills/)
 - [npx skills](https://github.com/vercel-labs/skills)
