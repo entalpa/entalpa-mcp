@@ -10,7 +10,7 @@ Commands and config snippets in this repo should be updated from these sources, 
 4. First-party public examples from major MCP providers.
 5. Generic installers such as `npx add-mcp`, `npx skills`, and `gh skill`.
 
-Last reviewed: 2026-07-18
+Last reviewed: 2026-07-30
 
 Claim-to-source mappings are maintained directly in `distribution/clients.yaml` and `distribution/registries.yaml`.
 
@@ -28,7 +28,7 @@ Claim-to-source mappings are maintained directly in `distribution/clients.yaml` 
 - [Auggie integrations and MCP](https://docs.augmentcode.com/cli/integrations) (official-docs)
 - [Augment Code Review MCP context](https://docs.augmentcode.com/codereview/mcp-context) (official-docs)
 - [Augment MCP setup](https://docs.augmentcode.com/setup-augment/mcp) (official-docs)
-- [Build Codex plugins](https://developers.openai.com/codex/plugins/build) (official-docs)
+- [Build Codex plugins](https://developers.openai.com/plugins/build/plugins) (official-docs)
 - [ChatGPT developer mode](https://help.openai.com/en/articles/12584461-connectors-in-chatgpt) (official-docs)
 - [Claude Code MCP](https://code.claude.com/docs/en/mcp) (official-docs)
 - [Claude Code plugin marketplaces](https://code.claude.com/docs/en/plugin-marketplaces) (official-docs)
@@ -42,9 +42,9 @@ Claim-to-source mappings are maintained directly in `distribution/clients.yaml` 
 - [CodeBuddy plugin marketplaces](https://www.codebuddy.ai/docs/cli/plugin-marketplaces) (official-docs)
 - [CodeBuddy plugins](https://www.codebuddy.ai/docs/cli/plugins) (official-docs)
 - [CodeBuddy skills](https://www.codebuddy.ai/docs/cli/skills) (official-docs)
-- [Codex MCP](https://developers.openai.com/codex/mcp) (official-docs)
-- [Codex Plugins](https://developers.openai.com/codex/plugins) (official-docs)
-- [Codex Skills](https://developers.openai.com/codex/skills) (official-docs)
+- [Codex MCP](https://learn.chatgpt.com/docs/extend/mcp) (official-docs)
+- [Codex Plugins](https://learn.chatgpt.com/docs/plugins) (official-docs)
+- [Codex Skills](https://learn.chatgpt.com/docs/build-skills) (official-docs)
 - [Configure MCP servers for GitHub Copilot coding agent](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers) (official-docs)
 - [Connect MCP servers from ChatGPT](https://developers.openai.com/apps-sdk/deploy/connect-chatgpt) (official-docs)
 - [Continue MCP deep dive](https://docs.continue.dev/customize/deep-dives/mcp) (official-docs)
@@ -131,6 +131,7 @@ Claim-to-source mappings are maintained directly in `distribution/clients.yaml` 
 - [Skills in the OpenAI API](https://developers.openai.com/api/docs/guides/tools-skills) (official-docs)
 - [Smithery publish MCP servers](https://smithery.ai/docs/build/publish) (registry-docs)
 - [Submit an MCP server to mcp.so](https://mcp.so/submit) (registry-docs)
+- [Submit plugins to the OpenAI plugin directory](https://developers.openai.com/plugins/deploy/submission) (official-docs)
 - [Tongyi Lingma April 2025 product updates](https://help.aliyun.com/en/lingma/product-overview/changelogs-of-202504) (official-docs)
 - [Tongyi Lingma Qoder CN MCP](https://help.aliyun.com/zh/lingma/qoder-cn/user-guide/guide-for-using-mcp) (official-docs)
 - [Tongyi Lingma Qoder CN skills](https://help.aliyun.com/zh/lingma/qoder-cn/user-guide/skills) (official-docs)
@@ -144,9 +145,9 @@ Claim-to-source mappings are maintained directly in `distribution/clients.yaml` 
 - [Use skills in Claude](https://support.claude.com/en/articles/12512180-use-skills-in-claude) (official-docs)
 - [VS Code MCP configuration reference](https://code.visualstudio.com/docs/agents/reference/mcp-configuration) (official-docs)
 - [VS Code MCP servers](https://code.visualstudio.com/docs/agent-customization/mcp-servers) (official-docs)
-- [Warp Agent Skills](https://docs.warp.dev/agent-platform/capabilities/skills) (official-docs)
+- [Warp Agent Skills](https://docs.warp.dev/agents/capabilities/skills/) (official-docs)
 - [Warp changelog](https://docs.warp.dev/changelog) (official-docs)
-- [Warp MCP](https://docs.warp.dev/agent-platform/capabilities/mcp/) (official-docs)
+- [Warp MCP](https://docs.warp.dev/agents/capabilities/mcp/) (official-docs)
 - [Warp MCP servers for cloud agents](https://docs.warp.dev/platform/mcp/) (official-docs)
 - [Warp MCP workflows](https://docs.warp.dev/guides/external-tools/using-mcp-servers-with-warp/) (official-docs)
 - [Windsurf Cascade MCP](https://docs.devin.ai/desktop/cascade/mcp) (official-docs)
