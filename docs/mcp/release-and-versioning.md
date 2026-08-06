@@ -6,13 +6,13 @@ Use release tags when you need reproducible skill or plugin installs. The unpinn
 
 ## Current Version
 
-- Distribution version: `0.1.0`
-- Plugin version: `0.1.0`
-- Recommended release tag: `v0.1.0`
+- Distribution version: `0.1.1`
+- Plugin version: `0.1.1`
+- Recommended release tag: `v0.1.1`
 
 The distribution, registry metadata, and plugin manifests derive these values from one canonical release version.
 
-The pinned commands below intentionally use `<release-tag>` as a placeholder. Replace it with `v0.1.0` only after that tag exists in `entalpa/entalpa-mcp`.
+The pinned commands below intentionally use `<release-tag>` as a placeholder. Replace it with `v0.1.1` only after that tag exists in `entalpa/entalpa-mcp`.
 
 
 
@@ -72,8 +72,9 @@ codex plugin marketplace add entalpa/entalpa-mcp --sparse .agents/plugins --spar
 
 ## Sources
 
-- [Codex Plugins](https://developers.openai.com/codex/plugins)
-- [Build Codex plugins](https://developers.openai.com/codex/plugins/build)
+- [Codex Plugins](https://learn.chatgpt.com/docs/plugins)
+- [Build Codex plugins](https://developers.openai.com/plugins/build/plugins)
+- [Submit plugins to the OpenAI plugin directory](https://developers.openai.com/plugins/deploy/submission)
 - [Claude Code plugin marketplaces](https://code.claude.com/docs/en/plugin-marketplaces)
 - [npx skills](https://github.com/vercel-labs/skills)
 - [GitHub CLI skills](https://cli.github.com/manual/gh_skill)

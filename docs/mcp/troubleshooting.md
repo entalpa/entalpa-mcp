@@ -39,7 +39,7 @@ Do not use the GitHub repository/cloud-agent MCP configuration for Entalpa yet. 
 
 ## Sources
 
-- [Codex MCP](https://developers.openai.com/codex/mcp)
+- [Codex MCP](https://learn.chatgpt.com/docs/extend/mcp)
 - [Claude Code MCP](https://code.claude.com/docs/en/mcp)
 - [Configure MCP servers for GitHub Copilot coding agent](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers)
 - [npx skills](https://github.com/vercel-labs/skills)
