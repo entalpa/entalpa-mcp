@@ -1,0 +1,18 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.entalpa/entalpa",
+  "title": "Entalpa",
+  "description": "Structured, traceable product requirements your coding agent can read and write.",
+  "version": "0.1.1",
+  "websiteUrl": "https://entalpa.com",
+  "repository": {
+    "url": "https://github.com/entalpa/entalpa-mcp",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://api.entalpa.com/mcp"
+    }
+  ]
+}
