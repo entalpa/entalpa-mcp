@@ -35,9 +35,10 @@ The bundled plugin installs the Entalpa MCP connection and every published skill
 
 ```bash
 codex plugin marketplace add entalpa/entalpa-mcp --sparse .agents/plugins --sparse plugins
+codex plugin add entalpa@entalpa-plugins
 ```
 
-Open `/plugins`, select the Entalpa Plugins marketplace, and install `entalpa`.
+Alternatively, after adding the marketplace, open `/plugins`, select the Entalpa Plugins marketplace, and install `entalpa` there. Adding a marketplace only registers its catalog; the plugin installation is what enables the bundled MCP server and skills.
 
 ### Claude Code
 

@@ -6,41 +6,42 @@ Use release tags when you need reproducible skill or plugin installs. The unpinn
 
 ## Current Version
 
-- Distribution version: `0.1.1`
-- Plugin version: `0.1.1`
-- Recommended release tag: `v0.1.1`
+- Distribution version: `0.1.2`
+- Plugin version: `0.1.2`
+- Recommended release tag: `v0.1.2`
 
 The distribution, registry metadata, and plugin manifests derive these values from one canonical release version.
 
-The pinned commands below use `v0.1.1`, the published release tag in `entalpa/entalpa-mcp`.
+The pinned commands below intentionally use `<release-tag>` as a placeholder. Replace it with `v0.1.2` only after that tag exists in `entalpa/entalpa-mcp`.
 
 
 
 ## Pinned Codex Plugin Marketplace
 
-Codex marketplace sources support repository refs. Use this for a reproducible install:
+Codex marketplace sources support repository refs. Use this after the release tag exists:
 
 ```bash
-codex plugin marketplace add entalpa/entalpa-mcp@v0.1.1 --sparse .agents/plugins --sparse plugins
+codex plugin marketplace add entalpa/entalpa-mcp@<release-tag> --sparse .agents/plugins --sparse plugins
+codex plugin add entalpa@entalpa-plugins
 ```
 
-Then open `/plugins`, choose the Entalpa Plugins marketplace, and install or enable `entalpa`.
+The marketplace command pins the catalog source; the plugin command installs `entalpa`. You can use `/plugins` instead of the second command.
 
 ## Pinned Claude Code Plugin Marketplace
 
-Claude Code plugin marketplace sources also support repository refs. Use this for a reproducible install:
+Claude Code plugin marketplace sources also support repository refs. Use this after the release tag exists:
 
 ```bash
-claude plugin marketplace add entalpa/entalpa-mcp@v0.1.1 --sparse .claude-plugin plugins
+claude plugin marketplace add entalpa/entalpa-mcp@<release-tag> --sparse .claude-plugin plugins
 claude plugin install entalpa@entalpa-plugins
 ```
 
 ## Pinned Skill Install
 
-`npx skills` supports repository refs and explicit all-skill selection. Use this for a reproducible install:
+`npx skills` supports repository refs and explicit all-skill selection. Use this after the release tag exists:
 
 ```bash
-npx skills add https://github.com/entalpa/entalpa-mcp/tree/v0.1.1 --skill "*" --agent codex -g -y
+npx skills add https://github.com/entalpa/entalpa-mcp/tree/<release-tag> --skill "*" --agent codex -g -y
 ```
 
 This installs all configured skills (`entalpa-implement`, `entalpa-prd`). Change `--agent codex` to another supported agent when needed.
@@ -48,15 +49,15 @@ This installs all configured skills (`entalpa-implement`, `entalpa-prd`). Change
 GitHub CLI also supports pinned skill installs:
 
 ```bash
-gh skill install entalpa/entalpa-mcp entalpa-implement --pin v0.1.1 --agent codex --scope user
-gh skill install entalpa/entalpa-mcp entalpa-prd --pin v0.1.1 --agent codex --scope user
+gh skill install entalpa/entalpa-mcp entalpa-implement --pin <release-tag> --agent codex --scope user
+gh skill install entalpa/entalpa-mcp entalpa-prd --pin <release-tag> --agent codex --scope user
 ```
 
 To use either skill without installing it:
 
 ```bash
-npx skills use https://github.com/entalpa/entalpa-mcp/tree/v0.1.1/skills/entalpa-implement
-npx skills use https://github.com/entalpa/entalpa-mcp/tree/v0.1.1/skills/entalpa-prd
+npx skills use https://github.com/entalpa/entalpa-mcp/tree/<release-tag>/skills/entalpa-implement
+npx skills use https://github.com/entalpa/entalpa-mcp/tree/<release-tag>/skills/entalpa-prd
 ```
 
 ## Unpinned Current Installs
@@ -68,12 +69,14 @@ These commands install the latest skill and plugin artifacts from `entalpa/ental
 ```bash
 npx skills add entalpa/entalpa-mcp --skill "*" --agent codex -g -y
 codex plugin marketplace add entalpa/entalpa-mcp --sparse .agents/plugins --sparse plugins
+codex plugin add entalpa@entalpa-plugins
 ```
 
 ## Sources
 
 - [Codex Plugins](https://learn.chatgpt.com/docs/plugins)
 - [Build Codex plugins](https://developers.openai.com/plugins/build/plugins)
+- [Codex 0.147.0 plugin MCP parser](https://github.com/openai/codex/blob/rust-v0.147.0/codex-rs/codex-mcp/src/plugin_config.rs#L35-L50)
 - [Submit plugins to the OpenAI plugin directory](https://developers.openai.com/plugins/deploy/submission)
 - [Claude Code plugin marketplaces](https://code.claude.com/docs/en/plugin-marketplaces)
 - [npx skills](https://github.com/vercel-labs/skills)

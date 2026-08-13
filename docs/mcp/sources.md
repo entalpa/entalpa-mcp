@@ -10,7 +10,7 @@ Commands and config snippets in this repo should be updated from these sources, 
 4. First-party public examples from major MCP providers.
 5. Generic installers such as `npx add-mcp`, `npx skills`, and `gh skill`.
 
-Last reviewed: 2026-07-30
+Last reviewed: 2026-08-13
 
 Claim-to-source mappings are maintained directly in `distribution/clients.yaml` and `distribution/registries.yaml`.
 
@@ -42,6 +42,7 @@ Claim-to-source mappings are maintained directly in `distribution/clients.yaml` 
 - [CodeBuddy plugin marketplaces](https://www.codebuddy.ai/docs/cli/plugin-marketplaces) (official-docs)
 - [CodeBuddy plugins](https://www.codebuddy.ai/docs/cli/plugins) (official-docs)
 - [CodeBuddy skills](https://www.codebuddy.ai/docs/cli/skills) (official-docs)
+- [Codex 0.147.0 plugin MCP parser](https://github.com/openai/codex/blob/rust-v0.147.0/codex-rs/codex-mcp/src/plugin_config.rs#L35-L50) (official-source)
 - [Codex MCP](https://learn.chatgpt.com/docs/extend/mcp) (official-docs)
 - [Codex Plugins](https://learn.chatgpt.com/docs/plugins) (official-docs)
 - [Codex Skills](https://learn.chatgpt.com/docs/build-skills) (official-docs)
