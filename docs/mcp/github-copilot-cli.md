@@ -14,7 +14,7 @@ Prefer the Entalpa Copilot plugin to install MCP plus all skills together, or us
 ### Add the MCP server
 
 ```bash
-copilot mcp add entalpa --type http --url https://api.entalpa.com/mcp
+copilot mcp add --transport http entalpa https://api.entalpa.com/mcp
 ```
 
 ### Authenticate the MCP server

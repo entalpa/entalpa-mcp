@@ -10,8 +10,7 @@ The plugin bundle lives at `plugins/entalpa` and includes:
 
 - Codex manifest: `plugins/entalpa/.codex-plugin/plugin.json`
 - Claude Code manifest: `plugins/entalpa/.claude-plugin/plugin.json`
-- Codex MCP config: `plugins/entalpa/.codex-mcp.json`
-- Claude Code MCP config: `plugins/entalpa/.mcp.json`
+- Shared Codex and Claude Code MCP config: `plugins/entalpa/.mcp.json`
 - Skill: `plugins/entalpa/skills/entalpa-implement/SKILL.md`
 - Skill: `plugins/entalpa/skills/entalpa-prd/SKILL.md`
 
@@ -25,9 +24,10 @@ Add the repository marketplace:
 
 ```bash
 codex plugin marketplace add entalpa/entalpa-mcp --sparse .agents/plugins --sparse plugins
+codex plugin add entalpa@entalpa-plugins
 ```
 
-Then open `/plugins` in Codex, choose the Entalpa Plugins marketplace, and install/enable `entalpa`.
+The first command registers the catalog; the second installs and enables `entalpa`. As a UI alternative to the second command, open `/plugins` in Codex, choose the Entalpa Plugins marketplace, and install the plugin there.
 
 ## Claude Code
 

@@ -10,6 +10,17 @@ metadata, and plugin skill copies are derived from the source configuration.
 
 ## Unreleased
 
+## 0.1.2 - 2026-08-13
+
+- Fixed the Codex plugin MCP configuration to use the `mcpServers` JSON shape
+  accepted by the Codex runtime. Codex and Claude Code now share one
+  `.mcp.json` instead of carrying divergent duplicate files.
+- Clarified that adding a Codex marketplace registers its catalog and must be
+  followed by plugin installation through `codex plugin add` or `/plugins`.
+- Added isolated installation smoke tests for the published skills, MCP
+  commands, and Codex and Claude plugin bundles.
+- Updated the GitHub Copilot CLI MCP command to its current native syntax.
+
 ## 0.1.1 - 2026-08-06
 
 - Documentation: the Codex documentation links now point at their current

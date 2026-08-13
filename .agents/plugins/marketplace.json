@@ -13,7 +13,7 @@
         "path": "./plugins/entalpa"
       },
       "description": "Adds the Entalpa remote MCP server and portable skills for implementing traceable requirements and generating grounded PRD or BRD documents.",
-      "version": "0.1.1",
+      "version": "0.1.2",
       "author": {
         "name": "Entalpa",
         "url": "https://entalpa.com"

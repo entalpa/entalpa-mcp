@@ -1,6 +1,6 @@
 {
   "name": "entalpa",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Adds the Entalpa remote MCP server and portable skills for implementing traceable requirements and generating grounded PRD or BRD documents.",
   "author": {
     "name": "Entalpa",
@@ -16,7 +16,7 @@
     "product-management"
   ],
   "skills": "./skills/",
-  "mcpServers": "./.codex-mcp.json",
+  "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "Entalpa",
     "shortDescription": "Entalpa MCP plus requirements workflows",
