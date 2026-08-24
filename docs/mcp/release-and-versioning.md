@@ -12,16 +12,16 @@ Use release tags when you need reproducible skill or plugin installs. The unpinn
 
 The distribution, registry metadata, and plugin manifests derive these values from one canonical release version.
 
-The pinned commands below intentionally use `<release-tag>` as a placeholder. Replace it with `v0.1.3` only after that tag exists in `entalpa/entalpa-mcp`.
+The pinned commands below use `v0.1.3`, the published release tag in `entalpa/entalpa-mcp`.
 
 
 
 ## Pinned Codex Plugin Marketplace
 
-Codex marketplace sources support repository refs. Use this after the release tag exists:
+Codex marketplace sources support repository refs. Use this for a reproducible install:
 
 ```bash
-codex plugin marketplace add entalpa/entalpa-mcp@<release-tag> --sparse .agents/plugins --sparse plugins
+codex plugin marketplace add entalpa/entalpa-mcp@v0.1.3 --sparse .agents/plugins --sparse plugins
 codex plugin add entalpa@entalpa-plugins
 ```
 
@@ -29,19 +29,19 @@ The marketplace command pins the catalog source; the plugin command installs `en
 
 ## Pinned Claude Code Plugin Marketplace
 
-Claude Code plugin marketplace sources also support repository refs. Use this after the release tag exists:
+Claude Code plugin marketplace sources also support repository refs. Use this for a reproducible install:
 
 ```bash
-claude plugin marketplace add entalpa/entalpa-mcp@<release-tag> --sparse .claude-plugin plugins
+claude plugin marketplace add entalpa/entalpa-mcp@v0.1.3 --sparse .claude-plugin plugins
 claude plugin install entalpa@entalpa-plugins
 ```
 
 ## Pinned Skill Install
 
-`npx skills` supports repository refs and explicit all-skill selection. Use this after the release tag exists:
+`npx skills` supports repository refs and explicit all-skill selection. Use this for a reproducible install:
 
 ```bash
-npx skills add https://github.com/entalpa/entalpa-mcp/tree/<release-tag> --skill "*" --agent codex -g -y
+npx skills add https://github.com/entalpa/entalpa-mcp/tree/v0.1.3 --skill "*" --agent codex -g -y
 ```
 
 This installs all configured skills (`entalpa-implement`, `entalpa-prd`). Change `--agent codex` to another supported agent when needed.
@@ -49,15 +49,15 @@ This installs all configured skills (`entalpa-implement`, `entalpa-prd`). Change
 GitHub CLI also supports pinned skill installs:
 
 ```bash
-gh skill install entalpa/entalpa-mcp entalpa-implement --pin <release-tag> --agent codex --scope user
-gh skill install entalpa/entalpa-mcp entalpa-prd --pin <release-tag> --agent codex --scope user
+gh skill install entalpa/entalpa-mcp entalpa-implement --pin v0.1.3 --agent codex --scope user
+gh skill install entalpa/entalpa-mcp entalpa-prd --pin v0.1.3 --agent codex --scope user
 ```
 
 To use either skill without installing it:
 
 ```bash
-npx skills use https://github.com/entalpa/entalpa-mcp/tree/<release-tag>/skills/entalpa-implement
-npx skills use https://github.com/entalpa/entalpa-mcp/tree/<release-tag>/skills/entalpa-prd
+npx skills use https://github.com/entalpa/entalpa-mcp/tree/v0.1.3/skills/entalpa-implement
+npx skills use https://github.com/entalpa/entalpa-mcp/tree/v0.1.3/skills/entalpa-prd
 ```
 
 ## Unpinned Current Installs
