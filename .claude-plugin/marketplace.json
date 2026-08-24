@@ -10,11 +10,11 @@
     {
       "name": "entalpa",
       "source": "./plugins/entalpa",
-      "description": "Adds the Entalpa remote MCP server and portable skills for implementing traceable requirements and generating grounded PRD or BRD documents.",
+      "description": "Adds the Entalpa remote MCP server and portable skills for implementing traceable requirements and generating grounded PRD or BRD documents. Requires an Entalpa account; your client signs in on first connect, with no API key to paste.",
       "author": {
         "name": "Entalpa"
       },
-      "homepage": "https://github.com/entalpa/entalpa-mcp/blob/main/MCP-configuration.md",
+      "homepage": "https://entalpa.com",
       "repository": "https://github.com/entalpa/entalpa-mcp",
       "license": "MIT",
       "keywords": [
