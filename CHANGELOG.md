@@ -10,6 +10,18 @@ metadata, and plugin skill copies are derived from the source configuration.
 
 ## Unreleased
 
+## 0.1.3 - 2026-08-24
+
+### Changed
+
+- The plugin description now states that an Entalpa account is required, and that
+  the client signs in on first connect with no API key to paste. Every tool on
+  the server answers 401 without one, and the description is what a user reads in
+  their client's plugin list.
+- Plugin and marketplace manifests point `homepage` at https://entalpa.com rather
+  than at the configuration guide's GitHub blob URL. `repository` still reaches
+  the guide, and the Codex `interface.websiteURL` already used the product site.
+
 ## 0.1.2 - 2026-08-13
 
 - Fixed the Codex plugin MCP configuration to use the `mcpServers` JSON shape
