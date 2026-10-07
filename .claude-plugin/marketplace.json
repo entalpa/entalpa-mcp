@@ -18,6 +18,8 @@
       "repository": "https://github.com/entalpa/entalpa-mcp",
       "license": "MIT",
       "keywords": [
+        "spec-driven-development",
+        "ai-coding-agents",
         "requirements",
         "traceability",
         "mcp",
