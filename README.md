@@ -1,8 +1,10 @@
-# Entalpa Integrations
+# Entalpa MCP: spec-driven development for AI coding agents
 
 <!-- Generated from Entalpa's canonical integration source. -->
 
-Connect supported AI clients to Entalpa's remote MCP server and install its portable Agent Skills: `entalpa-implement`, `entalpa-prd`.
+Entalpa is a spec-driven development platform for AI coding agents: a persistent, MCP-native specification layer (stakeholders, needs, user stories, requirements, design) with atomic locking and open questions surfaced before the build, for people building with Claude Code, Cursor and Codex. Learn more at [entalpa.com](https://entalpa.com).
+
+This repository connects supported AI clients to Entalpa's remote MCP server and installs its portable Agent Skills: `entalpa-implement`, `entalpa-prd`.
 
 ## Install the Skills
 
