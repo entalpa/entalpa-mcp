@@ -41,6 +41,8 @@ copilot plugin install entalpa@entalpa-plugins
 ```bash
 gh skill install entalpa/entalpa-mcp entalpa-implement --agent github-copilot --scope user
 gh skill install entalpa/entalpa-mcp entalpa-prd --agent github-copilot --scope user
+gh skill install entalpa/entalpa-mcp entalpa-openspec --agent github-copilot --scope user
+gh skill install entalpa/entalpa-mcp entalpa-speckit --agent github-copilot --scope user
 ```
 
 ### npx skills alternative

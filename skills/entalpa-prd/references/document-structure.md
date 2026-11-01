@@ -6,11 +6,13 @@ Use this reference when assembling the document. It defines the section order, h
 
 | Document part | Entalpa source |
 |---|---|
-| Title + one-line summary | `projects_export`: project `title`; a one-sentence summary distilled from `design_description` |
-| Part I business-requirements narrative | `projects_export`: `design_description`, stakeholder descriptions and story content |
+| Title + one-line summary | `projects_export`: project `title`; a one-sentence summary distilled from `description` (called `design_description` in exports before schema version 3) |
+| Part I business-requirements narrative | `projects_export`: `description`, stakeholder descriptions and story content |
 | Per-section grouping | Exported `subsystems` (`human_id`, `name`, `description`). No subsystems → one "System" section for the whole project |
 | Purpose & boundaries | Subsystem `description`; "what it does NOT do" from any explicit non-goals in stories/requirements — omit if absent, do not invent |
-| Coded requirement list | Exported `requirements`: `content.requirement`, keyed by top-level `human_id` (the same value as `content.id`) |
+| Coded requirement list | Exported `requirements`: `content.requirement`, keyed by top-level `human_id`. Leave out `rejected` and `superseded` requirements (their `lifecycle`) unless the user asks for them |
+| Status column (optional) | Requirement `lifecycle` (`draft`, `in_review`, `reviewed`, `in_progress`, `implemented`, `verified`, `blocked`) |
+| Open questions (optional) | Exported `open_questions` with `status: "open"`: decisions the spec has not settled yet |
 | Functional vs non-functional / constraints | `content.category` / `content.component` when present; otherwise list all under "Requirements" |
 | Data & storage table | Requirement `content` fields describing data/storage where the project records them; otherwise omit the table |
 | Definition of Done / acceptance table | Requirement `content.acceptance` |
@@ -21,7 +23,7 @@ Use this reference when assembling the document. It defines the section order, h
 
 1. **Title & summary** — project title as `# H1`, then a 1–2 sentence plain-language summary and a short table of contents.
 2. **Part I — Business requirements** (prose, LLM-written but grounded):
-   - *What we want to do* and *why* — the problem today, drawn from `design_description` and stakeholder needs.
+   - *What we want to do* and *why* — the problem today, drawn from `description` and stakeholder needs.
    - *Who it's for* — stakeholders and the outcomes each cares about.
    - *What we propose* / *What we gain* — the intended solution and its value, only as far as the project data supports.
    - *Principles / constraints* — cross-cutting rules if the project records them.
@@ -31,7 +33,8 @@ Use this reference when assembling the document. It defines the section order, h
    - **Data & storage** — a table only if the project records data/storage details; otherwise skip.
    - **Definition of Done** — a table of `<human_id>` → acceptance criteria for every requirement that has `acceptance`.
 4. **Traceability** — a compact table or list mapping requirements to their source stories (`source_story_ids`) and, for subsystem-level requirements, their parent system requirements (`source_requirement_ids`). The portable export expresses these links with human-readable IDs. Include an **Interfaces** subsection listing exported interface contracts (`source_subsystem_id` → `target_subsystem_id`, `interface_type`, `description_payload`) when any exist.
-5. **Appendix (optional)** — stakeholder list, story list, or a glossary if the user asked for them.
+5. **Open questions (optional)** — the exported `open_questions` still `open`, with the story each was asked about. A reader should see what is undecided rather than mistake silence for a decision.
+6. **Appendix (optional)** — stakeholder list, story list, withdrawn (`rejected`/`superseded`) requirements, or a glossary if the user asked for them.
 
 ## Coding & grouping rules
 
@@ -44,8 +47,8 @@ Use this reference when assembling the document. It defines the section order, h
 - A requirement with no `acceptance` still appears in the requirements list; it just has no Definition-of-Done row. Note sparse coverage in the summary rather than inventing criteria.
 - If a subsystem has no requirements in scope, include the section header with a one-line "No requirements recorded yet."
 - If the project has no subsystems, no stakeholders, or no stories, omit those sections/columns gracefully instead of leaving empty scaffolding.
-- Never drop a requirement to tidy the layout — completeness beats neatness for a spec.
+- Never drop a live requirement to tidy the layout — completeness beats neatness for a spec. `rejected` and `superseded` requirements are not live: they stay out of the requirement lists and tables unless the user asks for them.
 
 ## Faithfulness
 
-Prose may reorganize and summarize, but every requirement, acceptance criterion, constraint, number, and name must trace back to project data. When you summarize a `design_description`, keep its claims; do not add market claims, vendors, costs, or decisions that aren't there.
+Prose may reorganize and summarize, but every requirement, acceptance criterion, constraint, number, and name must trace back to project data. When you summarize the project `description`, keep its claims; do not add market claims, vendors, costs, or decisions that aren't there.

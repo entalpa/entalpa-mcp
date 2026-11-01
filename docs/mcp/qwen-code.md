@@ -69,7 +69,7 @@ cp -R "$tmpdir/skills/." .qwen/skills/
 
 - Run Qwen Code and use `/mcp` to confirm Entalpa is connected and tools are listed.
 - If authentication is pending, open `/mcp`, select `entalpa`, and use the reconnect or authorization action shown by Qwen Code.
-- Ask Qwen Code what skills are available and confirm `entalpa-implement` and `entalpa-prd` are listed.
+- Ask Qwen Code what skills are available and confirm `entalpa-implement`, `entalpa-prd`, `entalpa-openspec` and `entalpa-speckit` are listed.
 
 ## Known Limitations
 

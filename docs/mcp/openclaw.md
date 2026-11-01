@@ -42,18 +42,20 @@ Open the OpenClaw Control UI and use the MCP page at `/mcp` to review or edit th
 
 Install from `entalpa/entalpa-mcp`'s default branch for the latest skill, or use a release tag for a reproducible install.
 
-### Install both Entalpa skills
+### Install the Entalpa skills
 
 ```bash
 tmpdir="$(mktemp -d)"
 git clone --depth 1 https://github.com/entalpa/entalpa-mcp.git "$tmpdir"
 openclaw skills install "$tmpdir/skills/entalpa-implement" --as entalpa-implement
 openclaw skills install "$tmpdir/skills/entalpa-prd" --as entalpa-prd
+openclaw skills install "$tmpdir/skills/entalpa-openspec" --as entalpa-openspec
+openclaw skills install "$tmpdir/skills/entalpa-speckit" --as entalpa-speckit
 ```
 
 ### Future ClawHub path
 
-After publishing both skills to ClawHub, install and verify `@entalpa/entalpa-implement` and `@entalpa/entalpa-prd` separately.
+After publishing the skills to ClawHub, install and verify each of `@entalpa/entalpa-implement`, `@entalpa/entalpa-prd`, `@entalpa/entalpa-openspec` and `@entalpa/entalpa-speckit` separately.
 
 ### Skills CLI alternative
 

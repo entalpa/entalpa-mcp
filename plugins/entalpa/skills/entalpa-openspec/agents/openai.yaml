@@ -1,0 +1,13 @@
+interface:
+  display_name: "Entalpa for OpenSpec"
+  short_description: "Keep OpenSpec specs and Entalpa in step"
+  default_prompt: "Use $entalpa-openspec to bring this repository's OpenSpec specs into Entalpa and keep the project in step as changes are archived."
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "entalpa"
+      description: "Spec-driven development for AI coding agents: live requirements, stories and traceability over MCP"
+      transport: "streamable_http"
+      url: "https://api.entalpa.com/mcp"
+policy:
+  allow_implicit_invocation: true

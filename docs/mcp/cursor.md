@@ -46,6 +46,8 @@ npx skills add entalpa/entalpa-mcp --skill "*" --agent cursor -g -y
 ```bash
 gh skill install entalpa/entalpa-mcp entalpa-implement --agent cursor --scope user
 gh skill install entalpa/entalpa-mcp entalpa-prd --agent cursor --scope user
+gh skill install entalpa/entalpa-mcp entalpa-openspec --agent cursor --scope user
+gh skill install entalpa/entalpa-mcp entalpa-speckit --agent cursor --scope user
 ```
 
 ## Verify

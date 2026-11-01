@@ -49,6 +49,8 @@ npx skills add entalpa/entalpa-mcp --skill "*" --agent codex -g -y
 ```bash
 gh skill install entalpa/entalpa-mcp entalpa-implement --agent codex --scope user
 gh skill install entalpa/entalpa-mcp entalpa-prd --agent codex --scope user
+gh skill install entalpa/entalpa-mcp entalpa-openspec --agent codex --scope user
+gh skill install entalpa/entalpa-mcp entalpa-speckit --agent codex --scope user
 ```
 
 ## Verify

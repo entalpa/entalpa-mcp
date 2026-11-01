@@ -47,6 +47,8 @@ npx skills add entalpa/entalpa-mcp --skill "*" --agent opencode -g -y
 ```bash
 gh skill install entalpa/entalpa-mcp entalpa-implement --agent opencode --scope user
 gh skill install entalpa/entalpa-mcp entalpa-prd --agent opencode --scope user
+gh skill install entalpa/entalpa-mcp entalpa-openspec --agent opencode --scope user
+gh skill install entalpa/entalpa-mcp entalpa-speckit --agent opencode --scope user
 ```
 
 ## Verify
