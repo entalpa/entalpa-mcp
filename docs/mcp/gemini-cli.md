@@ -53,6 +53,8 @@ npx skills add entalpa/entalpa-mcp --skill "*" --agent gemini-cli -g -y
 ```bash
 gh skill install entalpa/entalpa-mcp entalpa-implement --agent gemini-cli --scope user
 gh skill install entalpa/entalpa-mcp entalpa-prd --agent gemini-cli --scope user
+gh skill install entalpa/entalpa-mcp entalpa-openspec --agent gemini-cli --scope user
+gh skill install entalpa/entalpa-mcp entalpa-speckit --agent gemini-cli --scope user
 ```
 
 ## Verify

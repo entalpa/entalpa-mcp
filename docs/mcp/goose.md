@@ -36,6 +36,8 @@ npx skills add entalpa/entalpa-mcp --skill "*" --agent goose -g -y
 ```bash
 gh skill install entalpa/entalpa-mcp entalpa-implement --agent goose --scope user
 gh skill install entalpa/entalpa-mcp entalpa-prd --agent goose --scope user
+gh skill install entalpa/entalpa-mcp entalpa-openspec --agent goose --scope user
+gh skill install entalpa/entalpa-mcp entalpa-speckit --agent goose --scope user
 ```
 
 ## Verify

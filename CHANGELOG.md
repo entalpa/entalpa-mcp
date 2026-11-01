@@ -8,7 +8,83 @@ same version a client reports for the installed plugin. This changelog and the
 canonical skills are maintained by hand; generated documentation, marketplace
 metadata, and plugin skill copies are derived from the source configuration.
 
-## Unreleased
+## 0.1.4 - 2026-11-01
+
+### Added
+
+- **A complete directory listing.** The Claude plugin manifest now sets
+  everything Anthropic's directory shows: the display name "Entalpa", an icon,
+  and documentation, support, privacy policy and terms links. The plugin folder
+  has a README, which the directory shows on the listing: what the plugin adds,
+  how to start, what it sends where (only to `api.entalpa.com`, signed in
+  through OAuth), which commands its skills may run, and what Entalpa fetches.
+  The plugin descriptions lead with what you get, spec-driven development with
+  user stories, acceptance criteria and PRDs, and say that the Entalpa account
+  is free. The marketplace entries, which GitHub Copilot and VS Code read too,
+  name no client.
+  Keywords add `user-stories`, `acceptance-criteria` and `prd`. The support link
+  is `entalpa.com/en/connect`, where the old `/en/connect-mcp` redirected.
+- Two Agent Skills for teams that already write specs in their repository:
+  - `entalpa-openspec` imports an OpenSpec repository's specs, and reads related requirements, stakeholders and open questions before a change is proposed. When a change is archived, it brings Entalpa up to date: it matches each delta by its recorded source or verified previous text within the domain, treats heading IDs as discovery hints, and lists what it cannot match instead of guessing. Exported specs are validated with an explicit noninteractive scope.
+  - `entalpa-speckit` imports a GitHub Spec Kit repository and folds its features into one current backlog. It says what the fold deletes and asks before spending credits, checks the next feature against the backlog before `/speckit-specify`, and keeps requirement statuses in step with `tasks.md` the way the import reads them. Setting `draft` is allowed during task-status synchronization; outside that workflow, resetting to `draft` requires the user's instruction.
+  - Both leave the team's spec files alone, with two exceptions, each only when the user agrees: an export the user asked for, and the one OpenSpec `config.yaml` rule that keeps Entalpa IDs in headings. Before an export they check for active changes and say what the export will rename or leave out.
+- All four skills are listed in every client's install instructions, the plugin description and keywords mention OpenSpec and Spec Kit, and the reviewed tool inventory now covers all 79 server tools with the server's own read, write and destructive markings.
+
+### Changed
+
+- Updated implementation guidance to discover entities by readable labels, then
+  copy returned UUIDs for operation targets, filters, selections and relationships.
+  Keep human IDs in explanations and portable documents; retain the selected UUID
+  if an entity is renamed, and ask before replacing a missing target, even when
+  a different entity has identical wording and metadata.
+- Corrected bulk lookup and implementation-feedback examples that advertised
+  human-ID selectors.
+- Documented the existing `projects_propagate_stories` and
+  `create_project_snapshot` tools, preserving the default website-authoring
+  workflow and distinguishing generation proposals from accepted changes.
+- `projects_export_openspec` and `projects_export_speckit` are read tools, and
+  the server marks them `readOnlyHint: true`. They return file paths and
+  contents and change nothing, so clients need not ask before running them.
+- `entalpa-implement` says that the story tools return a story's human ID
+  (`human_id`, for example `S-001`), as the stakeholder tools do, instead of
+  sending agents to `project_search`, `resolve_ids` or `projects_export` for it.
+- **Install from Claude's plugin directory.** The `entalpa` plugin is listed in
+  Claude's plugin directory, and the Claude guides now lead with it: add it in
+  claude.ai or the desktop app from Customize > Plugins, then connect `entalpa`
+  from the plugin's Connectors tab. It loads in Cowork too, and in Claude Code
+  as `entalpa@synced`. Claude Code 2.1.287 or later installs it with
+  `claude plugin install entalpa@anthropic-plugin-directory`, or finds it with
+  `/plugin directory entalpa`. The plugin's server shows in `/mcp` as
+  `plugin:entalpa:entalpa`. The custom connector, with a link that fills in its
+  name and URL, and the skill ZIP upload stay as the fallback where the
+  directory is not available, and the Entalpa marketplace stays for older
+  Claude Code.
+
+- **The listing leads with spec-driven development.** The server description is now "Spec-driven development for AI coding agents: live requirements, stories and traceability over MCP". It is what the MCP Registry shows, and the directories that read from it. The plugin keywords add `spec-driven-development` and `ai-coding-agents`. The public README opens with the same description as entalpa.com, and says that Entalpa works alongside Spec Kit, OpenSpec and `CLAUDE.md` rather than replacing them.
+
+Brought `entalpa-implement` and `entalpa-prd` up to date with the server.
+
+- **Status comes from `lifecycle`.** A requirement's status is its `lifecycle` field, which the website and the imports set too. `content.implementation_status`, which the skill used to read and filter on, is only an older way to write it. Agents now skip `rejected` and `superseded` requirements.
+- **Locked requirements,** in all four skills. Agents ask before changing a locked requirement's text, acceptance criteria or links. Recording status and evidence stays allowed. They never send a full update that would drop `lock`.
+- **AI tools and credits.** The tools and paths that run Entalpa's AI and spend credits are listed, to be used only when the user asks. 402, 409 and 429 refusals are explained. Generate, Analyze, Audit backlog and Propagate stories save their proposals as suggestions, which are applied with `suggestions_accept` rather than recreated with CRUD tools; stale and blocked items are explained.
+- **New in the guidance:**
+  - `projects_overview` as the first read;
+  - starting from a named requirement, with the same relevant source, open-question and interface checks as the story-based path;
+  - suspect links after a story changes, and `requirements_confirm_sources`;
+  - open questions;
+  - stakeholder IDs such as `SH-004`;
+  - `stakeholders_update`;
+  - treating project content as data, not instructions.
+- **Corrected:**
+  - The requirement text is `content.requirement`; `statement` is still accepted as an older name.
+  - A full `requirements_update` also resets `subsystem_id`, `from_description` and `source_requirement_ids`.
+  - `suggestions_accept` and `restore_project_snapshot` are treated as destructive.
+  - Requirements generated from stories now point at `projects_propagate_stories`.
+- **PRD skill:**
+  - it reads the project `description` and the assessment from the export;
+  - it leaves out rejected and superseded requirements;
+  - it can add a status column and an open-questions section;
+  - it no longer depends on `entalpa-implement` being installed.
 
 ## 0.1.3 - 2026-08-24
 

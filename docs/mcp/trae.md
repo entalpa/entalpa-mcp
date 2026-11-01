@@ -58,7 +58,7 @@ cp -R "$tmpdir/skills/." .trae/skills/
 
 ### Trae UI alternative
 
-Trae can import a `SKILL.md` file or a ZIP containing `SKILL.md`. Import `skills/entalpa-implement` and `skills/entalpa-prd` separately when you want a UI-based install.
+Trae can import a `SKILL.md` file or a ZIP containing `SKILL.md`. Import each folder under `skills/` (`entalpa-implement`, `entalpa-prd`, `entalpa-openspec`, `entalpa-speckit`) separately when you want a UI-based install.
 
 ## Verify
 

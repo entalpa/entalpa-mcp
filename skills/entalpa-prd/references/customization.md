@@ -6,7 +6,7 @@ The document should be customizable, but the user shouldn't have to fill in a fo
 
 - **Scope** — whole project, specific subsystem(s), or specific story/requirement set.
 - **Structure** — one section per subsystem, or a single combined "System" section.
-- **Included sections/columns** — rationale, risk, data & storage table, traceability, interfaces, appendices (stakeholder/story lists, glossary).
+- **Included sections/columns** — rationale, risk, status (`lifecycle`), data & storage table, traceability, interfaces, open questions, appendices (stakeholder/story lists, withdrawn requirements, glossary).
 - **Narrative depth** — terse (tables-forward) vs detailed prose in Part I and the per-subsystem intros.
 - **Language / locale** — the document's written language.
 - **Audience framing** — stakeholder BRD (default), vendor RFP (emphasize constraints, DoD, interfaces), or compliance (emphasize traceability and acceptance).
@@ -14,17 +14,19 @@ The document should be customizable, but the user shouldn't have to fill in a fo
 
 ## Defaults to infer from project contents
 
-Read the complete portable project payload with `projects_export`, call `projects_get_assessment` for its readiness assessment, and choose defaults:
+Read the complete portable project payload with `projects_export` (it includes the readiness assessment as `assessment_score` and `assessment_details`), and choose defaults:
 
 - **Structure** — more than one subsystem → per-subsystem sections; zero or one subsystem → a single combined section.
 - **Scope** — default to the whole project; if the user named a subsystem or story, scope to that and offer to widen.
 - **Rationale / risk columns** — include only if a meaningful share of requirements actually populate `content.rationale` / `content.risk`; otherwise omit to avoid empty columns.
 - **Interfaces section** — include only if the export contains interface contracts.
 - **Data & storage table** — include only if requirements record data/storage details.
-- **Language** — infer from the project's `title`/`design_description` and requirement text (e.g. a Russian `design_description` → default to a Russian document); fall back to English when mixed or unclear. Always let the user override.
+- **Language** — infer from the project's `title`/`description` and requirement text (e.g. a Russian `description` → default to a Russian document); fall back to English when mixed or unclear. Always let the user override.
+- **Open questions section** — include when the export has open questions with `status: "open"`.
+- **Status column** — include for a delivery or vendor audience, or when requirements carry statuses beyond `draft`; omit for an early-stage BRD.
 - **Audience** — default to a stakeholder-facing BRD.
 - **Format** — default to Markdown plus PDF when a PDF toolchain is likely available; otherwise Markdown, and mention PDF as an option.
-- **Thin-data warning** — if `projects_get_assessment` is low or requirements are few / lack acceptance, say so in the confirm message so the user can enrich the project first or proceed knowingly.
+- **Thin-data warning** — if the exported `assessment_score` is low or requirements are few / lack acceptance, say so in the confirm message so the user can enrich the project first or proceed knowingly.
 
 ## How to ask (one message)
 

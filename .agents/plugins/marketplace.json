@@ -12,10 +12,11 @@
         "source": "local",
         "path": "./plugins/entalpa"
       },
-      "description": "Adds the Entalpa remote MCP server and portable skills for implementing traceable requirements and generating grounded PRD or BRD documents. Requires an Entalpa account; your client signs in on first connect, with no API key to paste.",
-      "version": "0.1.3",
+      "description": "Spec-driven development for AI coding agents: keep user stories, requirements and acceptance criteria in Entalpa, draft PRDs from them, and have your agent implement against that spec, linking the code back to each requirement it covers. Imports and exports OpenSpec and GitHub Spec Kit. Requires a free Entalpa account.",
+      "version": "0.1.4",
       "author": {
         "name": "Entalpa",
+        "email": "contact@entalpa.com",
         "url": "https://entalpa.com"
       },
       "homepage": "https://entalpa.com",
@@ -23,11 +24,16 @@
       "license": "MIT",
       "keywords": [
         "spec-driven-development",
-        "ai-coding-agents",
         "requirements",
+        "user-stories",
+        "acceptance-criteria",
+        "prd",
         "traceability",
-        "mcp",
-        "product-management"
+        "openspec",
+        "spec-kit",
+        "ai-coding-agents",
+        "product-management",
+        "mcp"
       ],
       "policy": {
         "installation": "AVAILABLE",

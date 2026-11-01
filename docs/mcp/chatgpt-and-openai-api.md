@@ -34,11 +34,11 @@ Install from `entalpa/entalpa-mcp`'s default branch for the latest skill, or use
 
 ### Optional, add the Entalpa skills
 
-You only need these for the guided implementation and PRD/BRD workflows; they are not required for fetching a project or writing reports. In the ChatGPT sidebar, open Plugins, select the Skills tab, choose Create, then Upload from your computer, and upload the packaged `entalpa-implement` and `entalpa-prd` skills one at a time. ChatGPT, Codex, and API skills are stored separately.
+You only need these for the guided implementation and PRD/BRD workflows; they are not required for fetching a project or writing reports. In the ChatGPT sidebar, open Plugins, select the Skills tab, choose Create, then Upload from your computer, and upload the packaged `entalpa-implement` and `entalpa-prd` skills, plus `entalpa-openspec` or `entalpa-speckit` if your repositories use OpenSpec or Spec Kit, one at a time. ChatGPT, Codex, and API skills are stored separately.
 
 ### Optional, add the skills for API use
 
-For OpenAI API workflows, create a hosted API skill from each `entalpa-implement` and `entalpa-prd` package and reference the required versions from the API tool or container that runs them. ChatGPT skills do not automatically sync to the API.
+For OpenAI API workflows, create a hosted API skill from each Entalpa skill package you use and reference the required versions from the API tool or container that runs them. ChatGPT skills do not automatically sync to the API.
 
 ## Verify
 

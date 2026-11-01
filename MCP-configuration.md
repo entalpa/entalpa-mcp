@@ -7,16 +7,16 @@ Entalpa provides a remote Model Context Protocol server for live requirements en
 - MCP URL: `https://api.entalpa.com/mcp`
 - Transport: `streamable-http`
 - Authentication: OAuth through Entalpa/Keycloak
-- Skills: `entalpa-implement`, `entalpa-prd`
+- Skills: `entalpa-implement`, `entalpa-prd`, `entalpa-openspec`, `entalpa-speckit`
 
 ## Recommended Installs
 
 | Client | Preferred MCP install | Skill path | Guide |
 |---|---|---|---|
 | Claude Code | `claude mcp add --transport http entalpa https://api.entalpa.com/mcp` | Plugin install includes MCP + skills | [Guide](docs/mcp/claude-code.md) |
-| Claude Desktop and Claude.ai | In Free, Pro, or Max, open Customize, choose Connectors, then add a custom connector. Free accounts are limited to one custom connector. In Team or Enterprise plans, an Owner or Primary Owner adds custom connectors from Organization settings before members connect from Customize, Connectors. | Create one ZIP per canonical skill directory, with the corresponding `entalpa-implement` or `entalpa-prd` folder from `skills/` at the archive root. | [Guide](docs/mcp/claude-desktop.md) |
+| Claude Desktop and Claude.ai | In claude.ai or the Claude desktop app, open [Customize, Plugins](https://claude.ai/customize/plugins), search for Entalpa on the Discover tab, and select Add. The plugin is saved to your Claude account, so it also loads in Cowork and in Claude Code without a second install. | Plugin install includes MCP + skills | [Guide](docs/mcp/claude-desktop.md) |
 | Codex CLI, IDE, and App | `codex mcp add entalpa --url https://api.entalpa.com/mcp` | Plugin install includes MCP + skills | [Guide](docs/mcp/codex.md) |
-| ChatGPT and OpenAI API | Developer mode is a one-time switch that lets ChatGPT talk to outside apps like Entalpa. On Pro, open Settings, then Apps, then Advanced settings, and turn it on. On Business, Enterprise, or Edu, an admin or owner turns it on (Enterprise and Edu admins may first grant you access under Permissions and roles). | You only need these for the guided implementation and PRD/BRD workflows; they are not required for fetching a project or writing reports. In the ChatGPT sidebar, open Plugins, select the Skills tab, choose Create, then Upload from your computer, and upload the packaged `entalpa-implement` and `entalpa-prd` skills one at a time. ChatGPT, Codex, and API skills are stored separately. | [Guide](docs/mcp/chatgpt-and-openai-api.md) |
+| ChatGPT and OpenAI API | Developer mode is a one-time switch that lets ChatGPT talk to outside apps like Entalpa. On Pro, open Settings, then Apps, then Advanced settings, and turn it on. On Business, Enterprise, or Edu, an admin or owner turns it on (Enterprise and Edu admins may first grant you access under Permissions and roles). | You only need these for the guided implementation and PRD/BRD workflows; they are not required for fetching a project or writing reports. In the ChatGPT sidebar, open Plugins, select the Skills tab, choose Create, then Upload from your computer, and upload the packaged `entalpa-implement` and `entalpa-prd` skills, plus `entalpa-openspec` or `entalpa-speckit` if your repositories use OpenSpec or Spec Kit, one at a time. ChatGPT, Codex, and API skills are stored separately. | [Guide](docs/mcp/chatgpt-and-openai-api.md) |
 | Cursor | Native UI or config | `npx skills add entalpa/entalpa-mcp --skill "*" --agent cursor -g -y` | [Guide](docs/mcp/cursor.md) |
 | VS Code and GitHub Copilot | Native UI or config | `copilot plugin marketplace add entalpa/entalpa-mcp && copilot plugin install entalpa@entalpa-plugins` | [Guide](docs/mcp/vscode-github-copilot.md) |
 | GitHub Copilot CLI | `copilot mcp add --transport http entalpa https://api.entalpa.com/mcp` | `copilot plugin marketplace add entalpa/entalpa-mcp && copilot plugin install entalpa@entalpa-plugins` | [Guide](docs/mcp/github-copilot-cli.md) |
@@ -78,6 +78,8 @@ The commands below install from `entalpa/entalpa-mcp`'s default branch. Use a re
 npx skills add entalpa/entalpa-mcp --skill "*" --agent codex -g -y
 gh skill install entalpa/entalpa-mcp entalpa-implement --agent codex --scope user
 gh skill install entalpa/entalpa-mcp entalpa-prd --agent codex --scope user
+gh skill install entalpa/entalpa-mcp entalpa-openspec --agent codex --scope user
+gh skill install entalpa/entalpa-mcp entalpa-speckit --agent codex --scope user
 ```
 
 `npx skills` installs every published Entalpa skill in one command. GitHub CLI installs each named skill separately. Change `codex` to your target agent when supported by the installer.

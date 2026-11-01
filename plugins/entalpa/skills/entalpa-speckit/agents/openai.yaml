@@ -1,0 +1,13 @@
+interface:
+  display_name: "Entalpa for Spec Kit"
+  short_description: "Fold Spec Kit features into one current spec"
+  default_prompt: "Use $entalpa-speckit to import this repository's Spec Kit features into Entalpa, fold them into one backlog, and check the next feature against it."
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "entalpa"
+      description: "Spec-driven development for AI coding agents: live requirements, stories and traceability over MCP"
+      transport: "streamable_http"
+      url: "https://api.entalpa.com/mcp"
+policy:
+  allow_implicit_invocation: true

@@ -24,13 +24,15 @@
 
 ## Skills Are Installed But Not Used
 
-- Invoke the relevant skill explicitly as `$entalpa-implement` or `$entalpa-prd`.
+- Invoke the relevant skill explicitly as `$entalpa-implement` or `$entalpa-prd` or `$entalpa-openspec` or `$entalpa-speckit`.
 - Confirm the target agent is supported by the skill installer.
 - Use GitHub CLI as an alternative when it supports the target agent; install each skill explicitly:
 
 ```bash
 gh skill install entalpa/entalpa-mcp entalpa-implement --agent <agent> --scope user
 gh skill install entalpa/entalpa-mcp entalpa-prd --agent <agent> --scope user
+gh skill install entalpa/entalpa-mcp entalpa-openspec --agent <agent> --scope user
+gh skill install entalpa/entalpa-mcp entalpa-speckit --agent <agent> --scope user
 ```
 
 ## GitHub Copilot Cloud Agent
