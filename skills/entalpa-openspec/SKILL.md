@@ -38,7 +38,7 @@ If there is no Entalpa project yet, start with "Bring the Specs In".
 
 ## Bring the Specs In (once)
 
-Call `projects_import_openspec` with the repository's GitHub URL. `git remote get-url origin` gives it.
+Call `projects_import_openspec` with the repository's public address, written as `https://github.com/<owner>/<repo>` with nothing else in it: no user name, password or token.
 
 - **It creates a new project** and returns its ID; use that ID from then on. Each spec domain becomes a subsystem, each requirement a requirement (its text in `content.requirement`), and its scenarios become acceptance criteria.
 - **Importing again creates another project.** It does not refresh the first one. To keep a project current, use "When a Change Is Archived".

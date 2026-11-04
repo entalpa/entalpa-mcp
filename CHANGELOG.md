@@ -8,6 +8,32 @@ same version a client reports for the installed plugin. This changelog and the
 canonical skills are maintained by hand; generated documentation, marketplace
 metadata, and plugin skill copies are derived from the source configuration.
 
+## 0.1.5 - 2026-11-04
+
+### Changed
+
+- **The Entalpa connector in Claude's Connectors directory.** Entalpa's MCP
+  server has its own listing there since 2026-11-01:
+  [claude.ai/directory/entalpa](https://claude.ai/directory/entalpa). The
+  Claude guide offers it for the server alone and on a Free plan, where the
+  directory's plugins are not available, in place of the custom connector,
+  which stays as the last resort. The public README and the plugins page link
+  the listing, and say that with both the plugin and the connector, Claude
+  sees one set of tools.
+
+### Fixed
+
+- **The import skills no longer read the Git remote.** `entalpa-openspec` and
+  `entalpa-speckit` told the agent to take the repository's address from
+  `git remote get-url origin`. A remote URL can carry an access token, and the
+  agent would then have sent it to Entalpa with the import call. The server
+  rejected such an address without storing it, but the token had still left
+  the machine. The skills now ask for the plain
+  `https://github.com/<owner>/<repo>` address, with no user name, password or
+  token in it. Anthropic's plugin directory held 0.1.4 for review over this
+  line. The plugin README no longer lists finding the repository among the
+  uses of `git`.
+
 ## 0.1.4 - 2026-11-01
 
 ### Added

@@ -27,7 +27,7 @@ If there is no Entalpa project yet, start with "Bring the Features In".
 
 ## Bring the Features In (once)
 
-1. **Call `projects_import_speckit` with the repository's GitHub URL.** `git remote get-url origin` gives it.
+1. **Call `projects_import_speckit` with the repository's public address,** written as `https://github.com/<owner>/<repo>` with nothing else in it: no user name, password or token.
    - It creates a new project and returns its ID; use that ID from then on. From every `specs/<feature>/spec.md` it reads:
      - user stories, and the `FR-` and `SC-` requirements word for word;
      - clarifications as answered questions, and open `[NEEDS CLARIFICATION]` markers as open ones;

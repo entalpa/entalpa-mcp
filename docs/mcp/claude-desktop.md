@@ -2,11 +2,11 @@
 
 <!-- Generated from Entalpa's canonical integration source. -->
 
-Add the Entalpa plugin from Claude's plugin directory to get the remote MCP server and every Entalpa skill in chat, Cowork and Claude Code. Where the directory is not available, add Entalpa as a custom connector and upload the skills yourself.
+Add the Entalpa plugin from Claude's plugin directory to get the remote MCP server and every Entalpa skill in chat, Cowork and Claude Code. For the server alone, or on a Free plan, connect Entalpa from the Connectors directory and upload the skills yourself.
 
 ## Requirements
 
-- For the directory plugin: a Pro, Max, Ultra, Team or Enterprise plan. On a Free plan, use the custom connector.
+- For the directory plugin: a Pro, Max, Ultra, Team or Enterprise plan. On a Free plan, connect Entalpa from the Connectors directory.
 - Browser access for OAuth.
 - Code execution enabled before using Skills in Claude.ai.
 
@@ -20,9 +20,13 @@ In claude.ai or the Claude desktop app, open [Customize, Plugins](https://claude
 
 Open the plugin, select its Connectors tab, then add and connect `entalpa` and complete the Entalpa OAuth flow. On Team and Enterprise plans, an Owner decides whether the directory's plugins are available and adds the connector for the organization from Organization settings, Connectors; members then connect it with their own account.
 
-### Fallback: add a custom connector
+### Without the plugin: the Entalpa connector
 
-If the directory is not available to you, open Customize, Connectors and add a custom connector with name `Entalpa` and URL `https://api.entalpa.com/mcp`, then complete the OAuth flow when Claude asks to connect. [This link](https://claude.ai/customize/connectors?modal=add-custom-connector&connectorName=Entalpa&connectorUrl=https%3A%2F%2Fapi.entalpa.com%2Fmcp) opens the dialog with both values filled in. Free accounts are limited to one custom connector. In Team or Enterprise plans, an Owner or Primary Owner adds custom connectors from Organization settings before members connect from Customize, Connectors.
+Entalpa is also listed in the Connectors directory. Open [Entalpa in the directory](https://claude.ai/directory/entalpa), or search for Entalpa on the Discover tab of [Customize, Connectors](https://claude.ai/customize/connectors), select Connect to Claude and complete the Entalpa OAuth flow. It needs only a Claude account, so it works on a Free plan. On Team and Enterprise plans, an Owner adds it for the organization with Connect for your team, and members then connect with their own account. Claude Code sessions signed in with the same Claude account can use it too. The plugin points at the same server, so with both, Claude sees one set of Entalpa tools.
+
+### Last resort: add a custom connector
+
+If you can't use the directory, add a custom connector with name `Entalpa` and URL `https://api.entalpa.com/mcp` from Customize, Connectors, then complete the OAuth flow when Claude asks to connect. [This link](https://claude.ai/customize/connectors?modal=add-custom-connector&connectorName=Entalpa&connectorUrl=https%3A%2F%2Fapi.entalpa.com%2Fmcp) opens the dialog with both values filled in. Free accounts are limited to one custom connector. In Team or Enterprise plans, an Owner or Primary Owner adds custom connectors from Organization settings before members connect from Customize, Connectors.
 
 ## Install Entalpa Skill
 
@@ -30,7 +34,7 @@ Install from `entalpa/entalpa-mcp`'s default branch for the latest skill, or use
 
 ### Preferred plugin path
 
-The directory plugin includes every Entalpa skill, so there is nothing more to install. With the custom connector fallback, upload the skills as described below.
+The directory plugin includes every Entalpa skill, so there is nothing more to install. With the connector alone, upload the skills as described below.
 
 ### Package the Entalpa skills
 
@@ -57,6 +61,8 @@ Open Customize, Skills, select the plus button, choose Create skill, then Upload
 - [Plugins in Claude](https://claude.com/docs/plugins/overview)
 - [Plugin feature support across platforms](https://claude.com/docs/plugins/platform-support)
 - [Manage plugins for your organization](https://claude.com/docs/plugins/admin)
+- [Get started with connectors](https://claude.com/docs/connectors/getting-started)
+- [Use MCP servers from claude.ai in Claude Code](https://code.claude.com/docs/en/mcp#use-mcp-servers-from-claude-ai)
 - [Claude Custom Connectors](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp)
 - [Custom connector install link](https://claude.com/docs/connectors/building/directory-vs-custom#custom-connector-install-link)
 - [Guide to the Figma MCP server](https://help.figma.com/hc/en-us/articles/32132100833559-Guide-to-the-Figma-MCP-server)
