@@ -19,7 +19,7 @@ The document is authored as **Markdown** and optionally rendered to **PDF**. Mar
 
 Convert the Markdown to PDF with whatever is available in the environment, in this order of preference:
 
-1. **Pandoc** (best fidelity for tables): `pandoc <file>.md -o <file>.pdf` (needs a LaTeX engine such as `tectonic`/`xelatex`; pass `--pdf-engine=tectonic` if available).
+1. **Pandoc** (best fidelity for tables): `pandoc <file>.md -o <file>.pdf` (needs a LaTeX engine such as `tectonic` or `xelatex`; when `tectonic` is installed, use `pandoc <file>.md -o <file>.pdf --pdf-engine=tectonic`).
 2. **md-to-pdf** (Node, headless Chromium): when the executable is already installed, run `md-to-pdf <file>.md`.
 3. **Headless browser print** — render the Markdown to HTML, then print to PDF.
 

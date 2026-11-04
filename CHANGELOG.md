@@ -8,6 +8,17 @@ same version a client reports for the installed plugin. This changelog and the
 canonical skills are maintained by hand; generated documentation, marketplace
 metadata, and plugin skill copies are derived from the source configuration.
 
+## 0.1.6 - Unreleased
+
+### Fixed
+
+- **The plugin directory no longer holds new versions for review.** Since
+  0.1.4, Anthropic's plugin directory held each version as "Uses a credential
+  from the user's machine". Its scanner read "pass `--pdf-engine=tectonic`" in
+  the PRD skill's PDF instructions as a call to the `pass` password manager,
+  and paired it with the MCP server's URL as a credential leaving the machine.
+  The instruction now gives the whole `pandoc` command with that option.
+
 ## 0.1.5 - 2026-11-04
 
 ### Changed
@@ -30,9 +41,8 @@ metadata, and plugin skill copies are derived from the source configuration.
   rejected such an address without storing it, but the token had still left
   the machine. The skills now ask for the plain
   `https://github.com/<owner>/<repo>` address, with no user name, password or
-  token in it. Anthropic's plugin directory held 0.1.4 for review over this
-  line. The plugin README no longer lists finding the repository among the
-  uses of `git`.
+  token in it. The plugin README no longer lists finding the repository among
+  the uses of `git`.
 
 ## 0.1.4 - 2026-11-01
 
