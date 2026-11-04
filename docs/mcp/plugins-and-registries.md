@@ -32,6 +32,8 @@ claude plugin install entalpa@anthropic-plugin-directory
 
 The directory reads the listing from `plugins/entalpa/.claude-plugin/plugin.json` and the plugin README of the published repository, so changing the listing takes publishing a new version.
 
+The MCP server has a listing of its own in the Connectors directory, at https://claude.ai/directory/entalpa, for people who want the server without the plugin. The plugin points at the same server, so with both, Claude sees one set of Entalpa tools.
+
 ## Codex
 
 Add the repository marketplace:
@@ -68,11 +70,11 @@ Use native installers and the plugin marketplaces above. Registry and directory 
 - [Codex Plugins](https://learn.chatgpt.com/docs/plugins)
 - [Build Codex plugins](https://developers.openai.com/plugins/build/plugins)
 - [Plugins in Claude](https://claude.com/docs/plugins/overview)
+- [Get started with connectors](https://claude.com/docs/connectors/getting-started)
 - [Claude Code plugins synced from claude.ai](https://code.claude.com/docs/en/plugins/loading#synced-plugins)
 - [Claude Code plugin marketplaces](https://code.claude.com/docs/en/plugin-marketplaces)
 - [Claude Code plugins reference](https://code.claude.com/docs/en/plugins-reference)
 - [MCP Registry](https://modelcontextprotocol.io/registry/about)
 - [Configure MCP servers for GitHub Copilot coding agent](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers)
-- [Smithery publish MCP servers](https://smithery.ai/docs/build/publish)
 - [Glama MCP directory](https://glama.ai/)
 - [mcp.so MCP directory](https://mcp.so/)

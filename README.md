@@ -39,6 +39,8 @@ The bundled plugin installs the Entalpa MCP connection and every published skill
 
 Entalpa is listed in Claude's plugin directory. Open [Customize > Plugins](https://claude.ai/customize/plugins), search for Entalpa on the **Discover** tab, and select **Add**. Then open the plugin's **Connectors** tab and connect `entalpa`. The plugin is saved to your Claude account, so it also loads in Cowork and in Claude Code. On Team and Enterprise plans, an Owner may first have to make the directory's plugins available and add the connector for the organization.
 
+The Entalpa connector is listed in the [Connectors directory](https://claude.ai/directory/entalpa) too. Connect it there to use the server without the plugin, for example on a Free plan, where the directory's plugins are not available, and upload the skills from `skills/` yourself.
+
 ### Claude Code
 
 Install the plugin from Claude's plugin directory (Claude Code 2.1.287 or later; `/plugin directory entalpa` finds it from a session):
