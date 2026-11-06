@@ -1,0 +1,17 @@
+{
+  "name": "entalpa-plugins",
+  "owner": {
+    "name": "Entalpa",
+    "email": "contact@entalpa.com"
+  },
+  "metadata": {
+    "description": "Entalpa MCP and requirements-engineering plugin marketplace."
+  },
+  "plugins": [
+    {
+      "name": "entalpa",
+      "source": "./plugins/entalpa",
+      "description": "Spec-driven development for AI coding agents: keep user stories, requirements and acceptance criteria in Entalpa, draft PRDs from them, and have your agent implement against that spec, linking the code back to each requirement it covers. Imports and exports OpenSpec and GitHub Spec Kit. Requires a free Entalpa account."
+    }
+  ]
+}

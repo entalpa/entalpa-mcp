@@ -10,7 +10,9 @@ The plugin bundle lives at `plugins/entalpa` and includes:
 
 - Codex manifest: `plugins/entalpa/.codex-plugin/plugin.json`
 - Claude Code manifest: `plugins/entalpa/.claude-plugin/plugin.json`
+- Cursor manifest: `plugins/entalpa/.cursor-plugin/plugin.json`, found through the repository's `.cursor-plugin/marketplace.json`
 - Shared Codex and Claude Code MCP config: `plugins/entalpa/.mcp.json`
+- Cursor MCP config, the same server under the file name Cursor reads: `plugins/entalpa/mcp.json`
 - Skill: `plugins/entalpa/skills/entalpa-implement/SKILL.md`
 - Skill: `plugins/entalpa/skills/entalpa-prd/SKILL.md`
 - Skill: `plugins/entalpa/skills/entalpa-openspec/SKILL.md`

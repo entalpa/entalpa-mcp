@@ -1,0 +1,30 @@
+{
+  "name": "entalpa",
+  "displayName": "Entalpa",
+  "version": "0.1.7",
+  "description": "Spec-driven development in Cursor: keep user stories, requirements and acceptance criteria in Entalpa, draft PRDs from them, and have Cursor implement against that spec, linking the code back to each requirement it covers. Imports and exports OpenSpec and GitHub Spec Kit. Requires a free Entalpa account.",
+  "author": {
+    "name": "Entalpa",
+    "email": "contact@entalpa.com"
+  },
+  "homepage": "https://entalpa.com",
+  "repository": "https://github.com/entalpa/entalpa-mcp",
+  "license": "MIT",
+  "keywords": [
+    "spec-driven-development",
+    "requirements",
+    "user-stories",
+    "acceptance-criteria",
+    "prd",
+    "traceability",
+    "openspec",
+    "spec-kit",
+    "ai-coding-agents",
+    "product-management",
+    "mcp"
+  ],
+  "category": "productivity",
+  "logo": "./icon.png",
+  "skills": "./skills/",
+  "mcpServers": "./mcp.json"
+}

@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "entalpa": {
+      "type": "http",
+      "url": "https://api.entalpa.com/mcp"
+    }
+  }
+}
