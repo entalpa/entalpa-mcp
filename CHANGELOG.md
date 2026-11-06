@@ -8,7 +8,7 @@ same version a client reports for the installed plugin. This changelog and the
 canonical skills are maintained by hand; generated documentation, marketplace
 metadata, and plugin skill copies are derived from the source configuration.
 
-## 0.1.8 - Unreleased
+## 0.1.8 - 2026-11-06
 
 ### Added
 
