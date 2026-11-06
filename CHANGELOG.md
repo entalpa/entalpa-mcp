@@ -1,14 +1,53 @@
 # Changelog
 
 Notable changes to the Entalpa MCP integrations: the remote MCP connection, the
-published Agent Skills, and the Codex and Claude Code plugin bundle.
+published Agent Skills, and the Codex, Claude Code and Cursor plugin bundle.
 
 Versions follow the canonical distribution release, so each version here is the
 same version a client reports for the installed plugin. This changelog and the
 canonical skills are maintained by hand; generated documentation, marketplace
 metadata, and plugin skill copies are derived from the source configuration.
 
-## 0.1.6 - Unreleased
+## 0.1.7 - Unreleased
+
+### Added
+
+- **A Cursor plugin.** The `entalpa` plugin folder now carries Cursor's
+  manifest, `.cursor-plugin/plugin.json`, and the `mcp.json` that Cursor reads.
+  The repository's `.cursor-plugin/marketplace.json` points Cursor at that
+  folder. Cursor gets the same skills as Claude and Codex and the same icon
+  as Claude, from the same files; its `mcp.json` names the same MCP server as
+  the `.mcp.json` that Claude Code and Codex read. The plugin is not in the
+  Cursor Marketplace yet: Cursor reviews each publisher before listing.
+
+### Changed
+
+- **A new plugin icon.** The orange glow became hard to make out at the small
+  sizes plugin lists use. The new icon shows Entalpa's lattice: four orange
+  core dots joined by teal lines to eight white ones, on a dark tile that reads
+  on light and dark themes alike. Claude's plugin directory and Cursor show
+  the same file.
+- **Reviewing suggestions in an MCP Apps view.** In clients that display
+  MCP Apps views, such as Claude and ChatGPT, `entalpa-implement` lets the
+  user review a run's suggestions in `suggestions_review`, which applies the
+  decisions itself, and reads the view's context instead of listing the
+  items again. It mentions `requirements_show` for showing requirements
+  there. This needs the Entalpa server release with the MCP Apps views
+  (entalpa-platform#935, #1013).
+- **One undo for accepts and declines.** Reviewing in the conversation, the
+  skill declines the rest in the same `suggestions_accept` with `reject`, so
+  one undo reverts both, and keeps `suggestions_reject` for declining alone.
+  To revert one accept, it calls `projects_undo` with the `accept_token` that
+  accept returned, and the undo is refused if the project changed since. A plain undo
+  reverts the latest change, whoever made it.
+- **The reviewed tool inventory** adds the three read-only MCP Apps tools:
+  `requirements_show`, `suggestions_review`, and the view-only
+  `suggestions_review_get`.
+- **The plugin README speaks to every client.** It used to address Claude
+  only. It now says "your agent", gives the sign-in step for claude.ai, Claude
+  Code and Cursor, and still states everything the skills send and run.
+
+## 0.1.6 - 2026-11-04
 
 ### Fixed
 

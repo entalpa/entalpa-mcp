@@ -73,7 +73,7 @@ Alternatively, after adding the marketplace, open `/plugins`, select the Entalpa
 - `skills/entalpa-prd/`: Entalpa PRD.
 - `skills/entalpa-openspec/`: Entalpa for OpenSpec.
 - `skills/entalpa-speckit/`: Entalpa for Spec Kit.
-- `plugins/entalpa/`: self-contained Codex and Claude Code plugin bundle containing every skill above.
+- `plugins/entalpa/`: self-contained Codex, Claude Code and Cursor plugin bundle containing every skill above.
 - `docs/mcp/`: client-specific installation and troubleshooting guides.
 
 ## Versions and Changes

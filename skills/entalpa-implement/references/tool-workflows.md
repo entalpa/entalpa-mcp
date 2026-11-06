@@ -24,6 +24,7 @@ Use these tools to build context:
 - `stakeholders_list` / `stakeholders_get`: actors and stakeholder needs. Stakeholders have human IDs like `SH-004`. Stories have them too (`S-001`), and the story tools return them as `human_id`.
 - `open_questions_list`: the decisions the spec leaves open, with `status` (`open`, `answered`, `dismissed`) and `story_id` filters. See "Open Questions" below.
 - `suggestions_list`: AI proposals waiting for review. See "Saved Suggestions" below.
+- `suggestions_review` and `requirements_show`: in clients that display MCP Apps views, such as Claude and ChatGPT, show one batch of suggestions for review, or a set of requirements, in an interactive view. The user sees the items there and you get only counts back, so do not list them again. Without views the user sees nothing; read with `suggestions_list` and `requirement_items_list` instead.
 - `subsystems_list` / `subsystems_get`: affected system components.
 - `interface_contracts_list` / `interface_contracts_get`: boundaries, payloads, triggers, and state interfaces.
 - `project_search`: case-insensitive substring search across stories, requirements, stakeholders, subsystems, and interface contracts — use it instead of listing everything and filtering client-side.
@@ -69,7 +70,7 @@ A requirement appears as `modified` in `projects_diff` when only its evidence ke
 
 - Prefer `projects_patch` for partial project metadata edits.
 - Use `projects_update` only when replacing the full project object intentionally. Before `projects_update`, call `projects_get` and include every field that should be preserved.
-- Use `projects_undo` and `projects_redo` only when the user asks to revert or replay Entalpa project changes. Confirm the exact project ID and verify `can_undo` or `can_redo` before calling.
+- Use `projects_undo` and `projects_redo` only when the user asks to revert or replay Entalpa project changes. Confirm the exact project ID and verify `can_undo` or `can_redo` before calling. A plain undo reverts the project's latest change, whoever made it. To revert one `suggestions_accept`, call `projects_undo` with the `accept_token` that accept returned: the undo is then refused if the project changed after that accept.
 
 ## Create Requirements
 
@@ -104,15 +105,18 @@ Prefer server-generated content IDs unless the project already uses a clear nami
 
 ## Saved Suggestions
 
-`projects_generate`, `projects_analyze`, `projects_audit_backlog` and `projects_propagate_stories` use AI and spend credits; run them only when the user asks. Besides returning their proposal, they save it as a batch of suggestions, and the website's review dialogs show the same batch.
+`projects_generate`, `projects_analyze`, `projects_audit_backlog` and `projects_propagate_stories` use AI and spend credits; run them only when the user asks. Besides returning their proposal, they save it as a batch of suggestions, named by `batch_id` in their `saved_suggestions`, and the website's review dialogs show the same batch.
+
+In a client that displays MCP Apps views, show the batch with `suggestions_review` and its `batch_id`. The user accepts or declines each change in the view, which applies the decisions itself and offers Undo. The view shares what was decided as its context: read that context when the user refers to the decisions, and do not list the items again or apply them a second time. Without views, `suggestions_review` returns only counts and a `review_url` that opens the same review on the Entalpa website: give the user that link, or review in the conversation:
 
 1. `suggestions_list` with `project_id` returns pending batches, newest first. Filter with `operation` (`analyze`, `generate`, `audit_backlog`, `propagate_stories`) and `status`. Each item proposes creating, changing or deleting one requirement or story, with the proposed values in `changes`.
 2. Review the items with the user.
-3. Apply the accepted ones with `suggestions_accept`:
-   - pass `items: [{"id": <item id>}]`;
+3. Apply the user's decisions with one `suggestions_accept`:
+   - pass the accepted items as `items: [{"id": <item id>}]`;
+   - pass the declined items' ids as `reject`, so they are declined in the same change;
    - `fields` limits an item to some of its keys, and `values` substitutes your own value for a key;
-   - everything accepted in one call is a single undo step.
-4. Decline the rest with `suggestions_reject` and their `ids`.
+   - the call is a single undo step: `projects_undo` with the `accept_token` it returns reverts it, declines included.
+4. When the user only declines, `suggestions_reject` with their `ids` is enough. Those declines cannot be undone.
 
 `suggestions_accept` is destructive: an item can delete a requirement or story. Some items come back unapplied:
 - **`stale`:** the target changed since the run. Re-read the target and ask the user rather than passing `force: true`. Leave stale items out of the next call: sending one again without `force` fails the whole call with a 409.
