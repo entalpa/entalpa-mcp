@@ -1,7 +1,7 @@
 {
   "name": "entalpa",
   "displayName": "Entalpa",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Spec-driven development in Claude: keep user stories, requirements and acceptance criteria in Entalpa, draft PRDs from them, and have Claude implement against that spec, linking the code back to each requirement it covers. Imports and exports OpenSpec and GitHub Spec Kit. Requires a free Entalpa account.",
   "author": {
     "name": "Entalpa",
