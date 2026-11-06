@@ -1,6 +1,6 @@
 ---
 name: entalpa-implement
-description: Use this skill when working with Entalpa through its MCP server to implement stories and requirements that were authored on the Entalpa website, inspect the project/stakeholder/story/requirement/subsystem hierarchy, record code references, implementation status, and test coverage back onto requirements, or otherwise perform requirements-engineering work that should preserve traceability and avoid destructive MCP tool calls.
+description: Use this skill when working with Entalpa through its MCP server to implement stories and requirements that were authored on the Entalpa website, inspect the project/stakeholder/story/requirement/subsystem hierarchy, record code references, implementation status, and test coverage back onto requirements, check a project with a concern pack (an expert's checklist such as privacy, security or accessibility), or otherwise perform requirements-engineering work that should preserve traceability and avoid destructive MCP tool calls.
 license: MIT
 ---
 
@@ -46,6 +46,8 @@ For the less common case where the user asks you to draft stories or requirement
 - Prefer patch tools over full-object update tools, and prefer updates over delete/recreate.
 - Summarize the result with affected IDs, traceability links, assumptions, and any follow-up questions.
 
+To check a project with a pack (an expert's checklist of concerns, such as privacy, security or accessibility), or to write one, follow "Packs" in `references/tool-workflows.md`. A check saves open questions and changes no story or requirement.
+
 ## Reference Loading
 
 - Read `references/entity-model.md` to understand the project/stakeholder/story/requirement/subsystem/interface-contract hierarchy and content validation rules.
@@ -69,7 +71,7 @@ Set `source_story_ids` to the returned story UUIDs when the requirement is deriv
 
 ## Destructive Tools
 
-Treat these as destructive: `projects_delete`, `requirements_delete`, `stories_delete`, `stakeholders_delete`, `subsystems_delete`, `interface_contracts_delete`, `suggestions_accept` (accepting a suggestion can delete the requirement or story it proposes removing), and `restore_project_snapshot` (it replaces the whole project with a saved version; undo can revert it).
+Treat these as destructive: `projects_delete`, `requirements_delete`, `stories_delete`, `stakeholders_delete`, `subsystems_delete`, `interface_contracts_delete`, `suggestions_accept` (accepting a suggestion can delete the requirement or story it proposes removing), `restore_project_snapshot` (it replaces the whole project with a saved version; undo can revert it), `packs_delete`, and `packs_update` (its `concerns` replace the pack's whole checklist, so a concern left out is removed).
 
 Use destructive tools only when the user explicitly asks for that operation and confirms the exact targets. When in doubt, produce a proposed list instead of calling the tool.
 
@@ -84,7 +86,7 @@ A requirement with `lock: true` was settled by a person. Entalpa's own AI never 
 
 ## AI Tools and Credits
 
-Some tools run Entalpa's own AI and spend the user's credits: `projects_generate`, `projects_analyze`, `projects_audit_backlog`, `projects_propagate_stories`, `projects_propagate_requirements_to_subsystems`, `projects_detect_subsystems`, `projects_assess`, `projects_align_to_story`, `projects_align_stakeholders_to_stories`, `projects_align_requirements_to_stories`, `projects_ask_extra_feature`, `projects_specify_design`, `projects_make_description`, `projects_make_stories_from_description`, `projects_check_description`, and `projects_fold_speckit_features`. Two other paths use AI as well:
+Some tools run Entalpa's own AI and spend the user's credits: `projects_generate`, `projects_analyze`, `projects_audit_backlog`, `projects_propagate_stories`, `projects_propagate_requirements_to_subsystems`, `projects_detect_subsystems`, `projects_assess`, `projects_align_to_story`, `projects_align_stakeholders_to_stories`, `projects_align_requirements_to_stories`, `projects_ask_extra_feature`, `projects_specify_design`, `projects_make_description`, `projects_make_stories_from_description`, `projects_check_description`, `projects_fold_speckit_features`, and `projects_review_with_pack`. Two other paths use AI as well:
 - `open_questions_convert_to_story` drafts its text with AI when `content` is omitted, even with `dry_run`. A new story is aligned to stakeholders unless `run_align_to_story` is false.
 - `stories_create` and `stories_update` with `run_align_to_story: true`.
 

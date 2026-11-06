@@ -8,6 +8,36 @@ same version a client reports for the installed plugin. This changelog and the
 canonical skills are maintained by hand; generated documentation, marketplace
 metadata, and plugin skill copies are derived from the source configuration.
 
+## 0.1.8 - Unreleased
+
+### Added
+
+- **Checking a project with a pack.** `entalpa-implement` now covers concern
+  packs: an expert's checklist, such as privacy, security, accessibility or
+  payments, whose concerns are user stories from the owners who have them.
+  The agent picks a pack with `packs_list` or `packs_get`, and checks a
+  project with `projects_review_with_pack` only when the user asks, because
+  the check uses AI and credits. The questions it returns are already saved,
+  so the agent does not create them again; the user answers or dismisses
+  them, and an answer reaches the backlog only when it is converted into a
+  story. The check changes no story or requirement, and an empty result does
+  not mean the spec is complete or compliant. Writing a pack is covered too:
+  `packs_update` replaces the whole checklist, so it and `packs_delete` are
+  confirmed first, like the other destructive tools. Packs are not projects:
+  the skill finds them with `packs_list`, not `projects_list`. This needs
+  Entalpa 0.16.0 or later (entalpa-platform#849, #1015).
+
+### Changed
+
+- **Reports say what changed, in human IDs.** The skill's final response
+  names the project and uses human IDs, not UUIDs, and says what changed and
+  what did not, for example "Saved three questions; stories and requirements
+  are unchanged."
+- **The reviewed tool inventory** covers all 90 server tools. It adds the
+  pack tools `packs_list`, `packs_get` and `packs_create`, the destructive
+  `packs_update` and `packs_delete`, `projects_review_with_pack`, and the
+  Spec score tools `projects_spec_score` and `projects_spec_score_settings`.
+
 ## 0.1.7 - 2026-11-06
 
 ### Added

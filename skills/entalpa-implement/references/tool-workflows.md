@@ -5,7 +5,7 @@ Use this reference before MCP write calls or when choosing which Entalpa tools t
 ## Project Selection
 
 1. Call `users_get_me` to confirm the authenticated user.
-2. Call `projects_list` with a reasonable limit.
+2. Call `projects_list` with a reasonable limit. It lists projects only; packs come from `packs_list` (see "Packs").
 3. If the user named a project, match by exact title first, then clear substring match.
 4. If no project is unambiguous, ask the user to choose. Do not write to a guessed project.
 5. Call `projects_get` for the selected project before inspecting or changing requirements.
@@ -145,12 +145,43 @@ Open questions are decisions the spec has not settled yet.
   - When `content` is omitted, it drafts the text with AI, which spends credits, even with `dry_run`.
   - Convert only when the user asks.
 
+## Packs
+
+A pack is an expert's checklist that projects are checked with: privacy, security, accessibility, payments, or the user's own. Each concern in it is a user story from the owner who has it, such as "As a data protection officer, I want …, so that …". Packs are not projects: `projects_list` leaves them out, and they have their own tools.
+
+**Choose a pack.**
+- `packs_list` returns Entalpa's published packs (`by_entalpa`), then the user's own and those shared with them, each with its concern count and a few example concerns. With `project_id`, it leaves that project out and gives `last_review_at`, when the project was last checked with each pack.
+- A pack with `problem` cannot be used yet; tell the user why.
+- `packs_get` with a `pack_id` reads every concern and its owners.
+
+**Check a project only when the user asks.** `projects_review_with_pack` uses AI, spends credits, may take a few minutes, and needs edit access to the project. Pass `project_id` and exactly one of `pack_project_id` (a `pack_id` from `packs_list`) or `public_share_url`, the public link of a pack published on the same Entalpa instance.
+- Every concern gets a verdict in `concerns`, totalled in `counts`:
+  - `asked`: it raised a new question;
+  - `deferred`: it needs a question once these are answered;
+  - `already_asked`: an existing question asks it;
+  - `covered`: the listed requirements, stories or questions settle it;
+  - `not_relevant`: it does not apply, with its `reason`;
+  - `unchecked`: no verdict came back.
+- Checking again with the same pack gives each concern's `previous_verdict`, so you can say what changed since.
+- The `questions` it returns are **already saved** as open questions, up to twice as many as the pack has concerns. Do not create them again, as questions, stories or requirements.
+- The check changes nothing else: no story or requirement. An empty result, or every concern `covered`, does not guarantee that the spec is complete or compliant.
+
+**The user decides on the questions.** Show them with the counts. The user answers or dismisses each one with `open_questions_answer` (an `answer`, or `status: "dismissed"`). An answer becomes a new story, or revises one, only when it is converted with `open_questions_convert_to_story`, at the user's request (see "Open Questions").
+
+**Write a pack only when the user asks.**
+- `packs_create` takes a `title`, a `description` of what it checks, and up to 20 `concerns`, each a `concern` story with its `owners` by name. A new name becomes an owner; `owners` at the top level describes them.
+- `packs_update` changes a pack whose `can_edit` is true; read it with `packs_get` first. A field left out stays as it is, but `concerns` replaces the whole checklist: send a kept or reworded concern with its `id`, a new one without, and any concern left out is removed. An owner left without a concern is removed unless `owners` lists it.
+- `packs_update` and `packs_delete` are destructive. Before either, say what it will remove, the concerns or the whole pack, and wait for the user's confirmation. `packs_delete` deletes a pack the user owns; projects already checked with it keep their questions and verdicts.
+
+**Report in human terms.** Name the pack by its title, and questions by their `human_id`; server UUIDs go in tool arguments, not in prose. Say what actually changed, and what did not: "Saved three questions; stories and requirements are unchanged."
+
 ## Final Response Pattern
 
 End with:
 
-- Project name and ID.
+- Project name. Use human IDs and names throughout, not UUIDs.
 - Created or updated requirement IDs.
 - Source story IDs linked to each requirement.
+- What changed and what did not, for example "Saved three questions; stories and requirements are unchanged."
 - Assumptions or missing context.
 - Any destructive actions performed, if any.
